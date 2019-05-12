@@ -1,12 +1,24 @@
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const express = require("express");
+const logger = require("morgan");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const path = require("path");
+const cookieParser = require("cookie-parser");
 
-var app = express();
+const indexRouter = require("./routes/index");
+//mongoose connection
+const { connect } = require("./db/connection");
+//apiRoutes
+const { apiRouter } = require("./routes/quotesapi");
+
+const app = express();
+
+connect()
+  .then(() => {
+    console.log("Connected to Mongodb");
+  })
+  .catch(err => {
+    console.error("Couldn't connect to Mongodb");
+  });
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -15,6 +27,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/api", usersRouter);
+app.use("/api", apiRouter);
 
 module.exports = { app };
