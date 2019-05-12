@@ -1,6 +1,5 @@
 # Quotes API
 
-Making the second push
 Create a Node.js API that allows for the creation and retrieval of quotes.
 
 A quote example:
