@@ -6,7 +6,7 @@ const apiRouter = express.Router({ strict: true });
 //Helpers
 
 //Controller functions
-const { getBookmarks } = require("../controller/quote");
+const { getAllQuotes } = require("../controller/quote");
 
 //Route Config
 const apiRoutes = {
@@ -16,7 +16,8 @@ const apiRoutes = {
   updateQuoteById: "/quotes/:id",
   deleteBookmarkById: "/quotes/:id",
   batchDeleteBookmarks: "/quotes/delete/",
-  falseRoute: "/quotes/"
+  falseRoute: "/quotes/",
+  all: "*"
 };
 
 // Routes showing users possible endpoints for routes
@@ -27,7 +28,7 @@ apiRouter.get("/", (req, res) => {
 // Bad Requests Route
 
 // Get
-
+apiRouter.get(apiRoutes.getAllQuotes, getAllQuotes);
 // Post
 
 // Update
