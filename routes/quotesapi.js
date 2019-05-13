@@ -35,3 +35,5 @@ apiRouter.get("/", (req, res) => {
 // Delete
 
 //Batch Delete
+
+module.exports = { apiRouter, apiRoutes };
