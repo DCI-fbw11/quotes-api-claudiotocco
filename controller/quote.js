@@ -6,7 +6,7 @@ module.exports = {
   getAllQuotes: async (req, res, next) => {
     try {
       const quotesList = await Quote.find({});
-      if (!quoteList) {
+      if (!quotesList) {
         createError(400, noQuotes);
       } else {
         res.locals.response = Object.assign({}, res.locals.response || {}, {

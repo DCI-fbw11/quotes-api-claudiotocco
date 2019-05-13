@@ -4,6 +4,7 @@ const apiRouter = express.Router({ strict: true });
 //Middleware
 
 //Helpers
+const sendJsonResp = require("../helpers/sendJsonResp");
 
 //Controller functions
 const { getAllQuotes } = require("../controller/quote");
@@ -36,5 +37,7 @@ apiRouter.get(apiRoutes.getAllQuotes, getAllQuotes);
 // Delete
 
 //Batch Delete
+
+apiRouter.use(sendJsonResp);
 
 module.exports = { apiRouter, apiRoutes };
