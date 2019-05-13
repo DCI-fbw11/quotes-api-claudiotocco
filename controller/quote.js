@@ -1,4 +1,5 @@
 const Quote = require("../models/quote");
+const { noQuotes } = require("../helpers/errorMessage");
 
 module.exports = {
   //get all current quotes
@@ -6,7 +7,7 @@ module.exports = {
     try {
       const quotesList = await Quote.find({});
       if (!quoteList) {
-        // createError(400, noQuotes)
+        createError(400, noQuotes);
       } else {
         res.locals.response = Object.assign({}, res.locals.response || {}, {
           quote: quotesList
