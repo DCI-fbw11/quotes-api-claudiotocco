@@ -2,6 +2,7 @@ const express = require("express");
 const apiRouter = express.Router({ strict: true });
 
 //Middleware
+const { isBodyValid } = require("../middleware/apiMiddleware");
 
 //Helpers
 const sendJsonResp = require("../helpers/sendJsonResp");
