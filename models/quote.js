@@ -14,6 +14,10 @@ const QuoteSchema = new Schema({
     required: true,
     default: "anonymous"
   },
+  translation: {
+    maxlength: 150,
+    required: false,
+  },
   tag: {
     type: [{ type: String, maxlength: 50 }]
   },

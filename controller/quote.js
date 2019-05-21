@@ -5,6 +5,7 @@ module.exports = {
   //get all current quotes
   getAllQuotes: async (req, res, next) => {
     try {
+      console.log(res);
       const quotesList = await Quote.find({});
       if (!quotesList) {
         createError(400, noQuotes);
